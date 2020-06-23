@@ -2,6 +2,7 @@ package com.grigor.kvartirka.data.repository
 
 import com.grigor.kvartirka.BaseCoroutineExceptionHandler
 import com.grigor.kvartirka.data.AdvertRemoteDataSource
+import com.grigor.kvartirka.data.model.remote.Flat
 import com.grigor.kvartirka.data.model.remote.FlatResponse
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers

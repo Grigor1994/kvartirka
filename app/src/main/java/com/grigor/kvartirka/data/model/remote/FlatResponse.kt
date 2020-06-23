@@ -1,13 +1,13 @@
 package com.grigor.kvartirka.data.model.remote
 
 
+import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class FlatResponse(
-    @SerializedName("city_id")
-    val cityId: Int,
-    val currency: Currency,
-    val flats: List<Flat>,
-    val query: Query,
-    val version: Double
+    @Expose @SerializedName("city_id") val cityId: Int,
+    @Expose @SerializedName("currency") val currency: Currency,
+    @Expose @SerializedName("flats") val flats: List<Flat>,
+    @Expose @SerializedName("query") val query: Query,
+    @Expose @SerializedName("version") val version: Double
 )

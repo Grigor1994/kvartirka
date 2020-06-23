@@ -28,10 +28,5 @@ class AdvertDetailsFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val address = arguments?.getString("address")
-        textDetails.text = address
-        Log.d("Adapter", "${textDetails.text}")
-    }
+
 }

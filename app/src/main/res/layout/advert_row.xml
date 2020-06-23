@@ -1,35 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <data>
-        <variable
-            name="viewModel"
-            type="com.grigor.kvartirka.ui.MainAdvertsViewModel" />
-    </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!--        <ImageView-->
+    <!--            android:id="@+id/photoDefault"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            -->
+    <!--            android:scaleType="centerCrop"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toStartOf="parent" />-->
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-        <ImageView
-            android:id="@+id/photoDefault"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/addressTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textColor="@android:color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:layout_editor_absoluteX="0dp" />
+            android:padding="50dp"
+            android:textColor="@android:color/black" />
 
         <View
             android:id="@+id/view"
@@ -37,10 +32,7 @@
             android:layout_height="1dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="190dp"
-            android:layout_marginRight="16dp"
-            android:background="@android:color/darker_gray"
-            app:layout_constraintTop_toTopOf="@+id/photoDefault" />
+            android:layout_marginRight="16dp" />
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+    </RelativeLayout>
+</LinearLayout>

@@ -11,5 +11,5 @@ interface AdvertRemoteDataSource {
     suspend fun getFlats(
         @Query("point_lng") pointLng: Double,
         @Query("point_lat") pointLat: Double
-    ): retrofit2.Response<FlatResponse>
+    ): retrofit2.Response<FlatResponse?>
 }

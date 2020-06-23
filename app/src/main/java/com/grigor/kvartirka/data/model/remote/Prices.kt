@@ -1,10 +1,14 @@
 package com.grigor.kvartirka.data.model.remote
 
 
+import android.os.Parcelable
+import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Prices(
-    val day: Int,
-    val hour: Int,
-    val night: Int
-)
+    @Expose @SerializedName("day") val day: Int,
+    @Expose @SerializedName("hour") val hour: Int,
+    @Expose @SerializedName("night") val night: Int
+) : Parcelable

@@ -14,7 +14,7 @@ val appModule = module {
     single { NetworkManager.getApiService() }
     single { AdvertRepositoryImpl(get()) as AdvertRepository }
 
-    viewModel { MainAdvertsViewModel(get()) }
+    viewModel { MainAdvertsViewModel(get())}
 
     scope(named<MainAdvertsFragment>()) {
     }
