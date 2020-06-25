@@ -120,7 +120,6 @@ class MainAdvertsFragment : Fragment() {
             LocationHelper.REQUEST_CODE -> {
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     getLocation()
-                    showEnableLocationSetting()
                 }
             }
         }
