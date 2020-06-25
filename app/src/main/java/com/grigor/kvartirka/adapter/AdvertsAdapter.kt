@@ -1,10 +1,8 @@
 package com.grigor.kvartirka.adapter
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.grigor.kvartirka.R
 import com.grigor.kvartirka.data.model.remote.Currency
@@ -18,7 +16,6 @@ class AdvertsAdapter(
     val onClick: (Flat) -> Unit
 ) :
     RecyclerView.Adapter<AdvertsAdapter.ViewHolder>() {
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = DataBindingUtil.inflate<AdvertRowBinding>(
@@ -38,9 +35,6 @@ class AdvertsAdapter(
         holder.binding.briefDescriptionTextView.text = flat.description
         holder.binding.currencyTextView.text = flat.prices.day.toString().plus(currency?.label)
 
-        val bundle = Bundle()
-        bundle.putParcelable("flatData", flat)
-        
     }
 
     inner class ViewHolder(val binding: AdvertRowBinding) : RecyclerView.ViewHolder(binding.root) {
