@@ -9,7 +9,6 @@
         android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:paddingTop="?attr/actionBarSize"
             android:id="@+id/mainAdvertsRecyclerView"
             android:layout_width="409dp"
             android:layout_height="729dp"

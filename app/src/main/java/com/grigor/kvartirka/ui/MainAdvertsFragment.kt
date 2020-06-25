@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -107,6 +108,8 @@ class MainAdvertsFragment : Fragment() {
             .addOnSuccessListener { location: Location? ->
                 location?.let {
                     viewModel.getFlats(it.longitude, it.latitude)
+                    Log.d("Main","${it.longitude}")
+                    Log.d("Main","${it.latitude}")
                 }
             }
     }
