@@ -1,9 +1,12 @@
 package com.grigor.kvartirka.ui
 
 import android.os.Bundle
+import android.text.Html
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.text.HtmlCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
@@ -15,12 +18,12 @@ import kotlinx.android.synthetic.main.fragment_advert_details.*
 
 class AdvertDetailsFragment : Fragment() {
 
-
+    private lateinit var binding: FragmentAdvertDetailsBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = DataBindingUtil.inflate<FragmentAdvertDetailsBinding>(
+        binding = DataBindingUtil.inflate<FragmentAdvertDetailsBinding>(
             inflater,
             R.layout.fragment_advert_details,
             container,
@@ -35,6 +38,9 @@ class AdvertDetailsFragment : Fragment() {
         val args: AdvertDetailsFragmentArgs? =
             arguments?.let { AdvertDetailsFragmentArgs.fromBundle(it) }
         val flat = args?.flatData
+        descriptionFull.text =
+            HtmlCompat.fromHtml(flat?.descriptionFull.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY)
+        Log.d("Detail", flat?.descriptionFull)
         val gridLayoutManager = GridLayoutManager(requireContext(), 4)
 
         detailsAdvertsRecyclerView.apply {

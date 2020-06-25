@@ -12,8 +12,13 @@ import com.grigor.kvartirka.data.model.remote.Flat
 import com.grigor.kvartirka.databinding.AdvertRowBinding
 import com.squareup.picasso.Picasso
 
-class AdvertsAdapter(private val flats: List<Flat>, private val currency: Currency?) :
+class AdvertsAdapter(
+    private val flats: List<Flat>,
+    private val currency: Currency?,
+    val onClick: (Flat) -> Unit
+) :
     RecyclerView.Adapter<AdvertsAdapter.ViewHolder>() {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = DataBindingUtil.inflate<AdvertRowBinding>(
@@ -26,39 +31,30 @@ class AdvertsAdapter(private val flats: List<Flat>, private val currency: Curren
     override fun getItemCount() = flats.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val flats = flats[position]
-        Picasso.get()?.load(flats.photoDefault.url)?.into(holder.binding.photoDefault)
-        holder.binding.roomsCountTextView.text = flats.rooms.toString()
-        holder.binding.addressTextView.text = flats.address
-        holder.binding.briefDescriptionTextView.text = flats.description
-        holder.binding.currencyTextView.text = flats.prices.day.toString().plus(currency?.label)
+        val flat = flats[position]
+        Picasso.get()?.load(flat.photoDefault.url)?.into(holder.binding.photoDefault)
+        holder.binding.roomsCountTextView.text = flat.rooms.toString()
+        holder.binding.addressTextView.text = flat.address
+        holder.binding.briefDescriptionTextView.text = flat.description
+        holder.binding.currencyTextView.text = flat.prices.day.toString().plus(currency?.label)
 
         val bundle = Bundle()
-        val flat = Flat(
-            flats.address,
-            flats.badges,
-            flats.buildingType,
-            flats.contacts,
-            flats.description,
-            flats.descriptionFull,
-            flats.metro,
-            flats.photoDefault,
-            flats.photos,
-            flats.prices,
-            flats.rooms,
-            flats.title
-        )
         bundle.putParcelable("flatData", flat)
 
-        holder.itemView.setOnClickListener {
-            Navigation.createNavigateOnClickListener(
-                R.id.action_mainAdvertsFragment_to_advertDetailsFragment,
-                bundle
-            )
-                .onClick(holder.itemView)
-        }
+//        holder.itemView.setOnClickListener {
+//            Navigation.createNavigateOnClickListener(
+//                R.id.action_mainAdvertsFragment_to_advertDetailsFragment,
+//                bundle
+//            )
+//                .onClick(holder.itemView)
+//        }
     }
 
-    class ViewHolder(val binding: AdvertRowBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(val binding: AdvertRowBinding) : RecyclerView.ViewHolder(binding.root) {
+        init {
+            itemView.setOnClickListener {
+                onClick(flats[layoutPosition])
+            }
+        }
     }
 }
