@@ -40,14 +40,7 @@ class AdvertsAdapter(
 
         val bundle = Bundle()
         bundle.putParcelable("flatData", flat)
-
-//        holder.itemView.setOnClickListener {
-//            Navigation.createNavigateOnClickListener(
-//                R.id.action_mainAdvertsFragment_to_advertDetailsFragment,
-//                bundle
-//            )
-//                .onClick(holder.itemView)
-//        }
+        
     }
 
     inner class ViewHolder(val binding: AdvertRowBinding) : RecyclerView.ViewHolder(binding.root) {
