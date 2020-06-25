@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.grigor.kvartirka.adapter.AdvertsAdapter
-import com.grigor.kvartirka.data.model.remote.Photo
 import com.grigor.kvartirka.databinding.FragmentMainAdvertsBinding
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 

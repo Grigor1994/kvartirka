@@ -28,7 +28,6 @@ class DetailsAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val photo = photos[position]
         Picasso.get()?.load(photo.url)?.fit()?.into(holder.binding.imageView)
-
     }
 
     class ViewHolder(val binding: DetailsRowBinding) : RecyclerView.ViewHolder(binding.root) {
