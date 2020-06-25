@@ -9,5 +9,4 @@ class BaseCoroutineExceptionHandler(override val key: CoroutineContext.Key<*>) :
     override fun handleException(context: CoroutineContext, exception: Throwable) {
         Log.e("Error", exception.localizedMessage!!)
     }
-
 }

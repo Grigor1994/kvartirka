@@ -5,22 +5,20 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.grigor.kvartirka.data.model.remote.FlatResponse
-import com.grigor.kvartirka.data.repository.AdvertRepositoryImpl
+import com.grigor.kvartirka.data.repository.AdvertRepository
 import kotlinx.coroutines.launch
 import org.koin.core.KoinComponent
 
-class MainAdvertsViewModel(val repository: AdvertRepositoryImpl) : ViewModel(),
+class AdvertsViewModel(private val repository: AdvertRepository) : ViewModel(),
     KoinComponent {
 
-    private val _advertsLiveData = MutableLiveData<FlatResponse?>()
-    val advertsLiveData: LiveData<FlatResponse?>
-        get() = _advertsLiveData
-
+    private val _flatsLiveData = MutableLiveData<FlatResponse?>()
+    val flatsLiveData: LiveData<FlatResponse?>
+        get() = _flatsLiveData
 
     fun getFlats(pointLng: Double, pointLat: Double) {
         viewModelScope.launch {
-            _advertsLiveData.value = repository.getFlats(pointLng, pointLat)
+            _flatsLiveData.value = repository.getFlats(pointLng, pointLat)
         }
     }
-
 }

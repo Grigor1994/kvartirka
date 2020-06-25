@@ -9,19 +9,23 @@
         android:id="@+id/mainAdvertsFragment"
         android:name="com.grigor.kvartirka.ui.MainAdvertsFragment"
         android:label="fragment_main_adverts"
-        tools:layout="@layout/fragment_main_adverts" >
+        tools:layout="@layout/fragment_main_adverts">
         <action
             android:id="@+id/action_mainAdvertsFragment_to_advertDetailsFragment"
             app:destination="@id/advertDetailsFragment" />
-        <argument
-            android:name="address"
-            app:argType="string" />
+
     </fragment>
+
 
     <fragment
         android:id="@+id/advertDetailsFragment"
         android:name="com.grigor.kvartirka.ui.AdvertDetailsFragment"
         android:label="fragment_advert_details"
-        tools:layout="@layout/fragment_advert_details" />
+        tools:layout="@layout/fragment_advert_details">
+
+        <argument
+            android:name="flatData"
+            app:argType="com.grigor.kvartirka.data.model.remote.Flat" />
+    </fragment>
 
 </navigation>
